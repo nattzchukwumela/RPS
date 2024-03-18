@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+   <title>ROCK | PAPER | SCISSORS</title>
+  <link rel="stylesheet" href="main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Rock, Paper, Scissors" />
+  <meta property="og:image" content="game.jpg" />
+  <meta property="og:descriptive" content="Play a classic game of rock paper scissors with the computer! Choose your weapon and see who comes out top." />
+  <link rel="icon" type="image/x-icon" href="./favicon/rock1.png" />
+  </head>
+  <body>
+    <main id="main">
+       <div id="popup-box">
+      <div class="popup" id="popup">
+        <h3>Please Enter Your Name</h3>
+        <div id="input-box">
+        Name:<input type="text" placeholder="Enter name here" id="name-input" /></div>
+        <div id="btn-box">
+        <button class="btn" id="true" >OK</button>
+        <button class="btn" id="false" >Cancel</button>
+        </div>
+      </div>
+    </div>
+    <div id="popup-box-2" class="popup">
+      <div>
+        <h3 id="winner">Computer Wins!</h3>
+      <p id="note"> Play again?</p>
+      <button class="btn" id="retry" >Retry</button>
+      <button class="btn" id="quit">Quit</button>
+      </div>
+    </div>
+    <div id="gameBox">
+      <div id="computerChoice" >
+       <button class="weapon wip" value="rock">Rock</button>
+       <button class="weapon wip" value="paper">Paper</button>
+       <button class="weapon wip" value="Scissors">Scissors</button>
+      </div>
+      <div id="stats">
+        <div class="block">
+          <p id="computerArsenal"></p>
+          <p id="playerArsenal"></p>
+        </div>
+        <hr />
+        <div class="block">
+        <p id="computerPoints"></p>
+        <p id="playerPoints"></p>
+        </div>
+      </div>
+      <div id="playerChoice">
+       <button class="playerWeapon" value="rock">Rock</button>
+       <button class="playerWeapon" value="paper">Paper</button>
+       <button class="playerWeapon" value="Scissors">Scissors</button>
+      </div>
+    </div>
+    </main>
+    <script src="script.js">
+    </script>
+  </body>
+</html>
+
+
+/// first step of the html code after this css code below must be added
+
+ *{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  }
+body {
+  width: 100%;
+  height: auto;
+  }
+main {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   text-align: center;
+   background: #999;
+   border: 2px solid steelblue;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+  
+  /* the code below styles the popup boxes */
+  .popup {
+   background: #333;
+   border-radius: 6px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   padding: 0 30px 30px;
+   color: #fff;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   visibility: hidden;
+   transition: transform 0.5s;
+ }
+ 
+ #popup {
+   width: 300px;
+   height: 200px;
+   background: #333;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 1;
+ }
+  #popup h3 {
+   margin-bottom: 10px;
+ }
+ #input-box {
+   font-size: 1em;
+   width: 250px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .popup #name-input {
+   width: 150px;
+   height: 25px;
+   margin-left: 10px;
+   border: 1px solid steelblue;
+   border-radius: 5px;
+   padding: 5px;
+ }
+  #popup-box-2 {
+   height: 130px;
+   width: 250px;
+   padding: 10px;
+ }
+ #winner, p, .btn {
+   margin-top: 5px;
+ }
+ /* this code styles the buttons inside the popup boxes */
+ .btn {
+   padding: 5px;
+   background: #6fd649;
+   border: 0;
+   width: 80px;
+   cursor: pointer;
+   font-size: 18px;
+   font-weight: 500;
+   border-radius: 5px;
+   margin: 0 5px;
+   transform: translateY(20px);
+ }
+  
+  after styling the background and the popup boxes then style the gamebox html element
+
+  
+
+
