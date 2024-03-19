@@ -24,7 +24,7 @@
     const quit = document.getElementById('quit');
     const btnReplay = document.getElementById('btnReplay');
     const ok = document.getElementById('ok');
-    console.log(ok);
+  
    // all variables below are attached to the popup boxes on the html page
     const popup = document.getElementById('popup');
     const popup2 = document.getElementById('popup-box-2');
@@ -178,3 +178,13 @@ wip2.style.boxShadow = 'none';
   ok.onclick = function() {
     popup3.classList.remove('display-popup');
   }
+
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(registration => {
+        console.log("SW registered")
+        console.log(registration)
+    }).catch(err => {
+        console.log('something went wrong', err)
+    })
+}

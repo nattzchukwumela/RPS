@@ -1,0 +1,27 @@
+{
+    "name": "Rock, Paper, Scissors | PWA",
+    "short_name": "RPS",
+    "lang": "en",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#6dcdb1",
+    "theme_color": "#2196f3",
+    "icons": [
+      {
+        "src": "icon/icon-128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "icon/icon-256.png",
+        "sizes": "512x512",
+        "type":"image/png"
+      },
+      {
+        "src": "icon/icon-512.png",
+        "sizes": "512x512",
+        "type":"image/png"
+      }
+    ],
+    "prefer_related_applications": false
+}
