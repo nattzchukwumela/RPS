@@ -188,3 +188,23 @@ wip2.style.boxShadow = 'none';
         console.log('something went wrong', err)
     })
 }
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    deferredPrompt = e;
+    console.log(e)
+});
+
+const installApp = document.getElementById('install-button');
+console.log(installApp);
+
+installApp.addEventListener('click', async () => {
+    if (deferredPrompt !== null) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            deferredPrompt = null;
+        }
+    }
+});

@@ -1,11 +1,15 @@
 self.addEventListener("install", e => {
     e.waitUntil(
       caches.open("static").then(cache => {
-          return cache.addAll(["./", "./favicon"]);
+          return cache.addAll(["./", "./favicon/rock1.png", "./script.js", "./style.css", "./index.html"]);
       })
     );
    })
   
    self.addEventListener("fetch", e => {
-    console.log(`intercepting fetch request ${e.request.url}` )
+     e.respondWith(
+      caches.match(e.request).then(response => {
+        return response || fetch(e.request);
+      })
+     )
  })
