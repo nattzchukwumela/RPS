@@ -35,9 +35,10 @@ type Result = "TIE GAME!" | "YOU WIN!" | "YOU LOSE!" | "ERROR!";
     // this variable below is attached to the name input box in the html page
     let nameInput = document.getElementById('name-input') as HTMLInputElement;
     let playerPointName = document.getElementById('playerPoint') as HTMLParagraphElement;
+    let computerPointsName = document.getElementById("computerPoints") as HTMLParagraphElement;
     
     // buttons onclick function below will call the first popup box. this box will ask for your name
-    startGame.onclick = function() {
+    startGame.onclick = function(): void {
       popup.classList.add('display-popup');
     };
     
@@ -99,9 +100,11 @@ wip2.style.boxShadow = 'none';
       break;
  }
     }
-    computerTurn();
-    playerChoice.textContent = `${player}`;
-    computerChoice.textContent = `${computer}`;
+
+  computerTurn();
+
+  playerChoice.textContent = `${player}`;
+  computerChoice.textContent = `${computer}`;
     
      // this function below checks for a winner weather it's computer or player.
   function checkWinner(): Result {
@@ -123,22 +126,22 @@ wip2.style.boxShadow = 'none';
  result = checkWinner()
     
     // code below will calculate for player points
-  function points() {
-  let playerName = nameInput.value;
-  if (result === 'YOU WIN!') {
+  function points(): void {
+  let playerName = nameInput.value as string;
+  if(result === 'YOU WIN!') {
     playerScore++;
-   playerPoint.textContent = `${playerName}: ${playerScore}`;
+    playerPointName.textContent = `${playerName}: ${playerScore}`;
   }
  else if (result === 'YOU LOSE!') {
      computerScore++;
-     computerPoints.textContent = `Computer: ${computerScore}`;
+     computerPointsName.textContent = `Computer: ${computerScore}`;
   }
 }
     points();
     
   // the code below will run anytime either player or computer reaches a 10 points
     function round() {
-  let playerName = nameInput.value;
+  let playerName = nameInput.value as string;
  if (computerScore == 10) {
     gameBox.style.visibility ='hidden';
     winner.textContent = "Computer Wins!";
@@ -146,8 +149,8 @@ wip2.style.boxShadow = 'none';
     btnReplay.textContent = "Retry";
     playerScore = 0;
     computerScore = 0;
-    playerPoint.textContent = `${playerName}: ${playerScore}`;
-    computerPoints.textContent = `Computer: 0`;
+    playerPointName.textContent = `${playerName}: ${playerScore}`;
+    computerPointsName.textContent = `Computer: 0`;
     playerChoice.textContent = `Arsenal`;
     computerChoice.textContent = `Arsenal`;
     stats.textContent = '-';
@@ -161,8 +164,8 @@ wip2.style.boxShadow = 'none';
       computerScore = 0;
       playerChoice.textContent = `Arsenal`;
       computerChoice.textContent = `Arsenal`;
-      playerPoint.textContent = `${playerName}: ${playerScore}`;
-      computerPoints.textContent = `Computer: 0`;
+      playerPointName.textContent = `${playerName}: ${playerScore}`;
+      computerPointsName.textContent = `Computer: 0`;
       stats.textContent = '-';
      }
    }
@@ -198,15 +201,15 @@ window.addEventListener('beforeinstallprompt', (e) => {
     console.log(e)
 });
 
-const installApp = document.getElementById('install-button');
-console.log(installApp);
+const installApp = document.getElementById('install-button') as HTMLButtonElement;
+
 
 installApp.addEventListener('click', async () => {
-    if (deferredPrompt !== null) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-            deferredPrompt = null;
-        }
+  if (deferredPrompt !== undefined && 'prompt' in deferredPrompt) {
+    (deferredPrompt as { prompt: () => void }).prompt();
+    const { outcome } = await (deferredPrompt as any).userChoice;
+    if (outcome === 'accepted') {
+      deferredPrompt = undefined;
     }
+  }
 });
