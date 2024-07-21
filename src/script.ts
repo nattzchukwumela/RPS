@@ -1,3 +1,10 @@
+  /**
+   * This code handles the game logic for a rock-paper-scissors game. It updates the player's and computer's scores, displays the results, and manages the game flow.
+   * 
+   * The code sets up event listeners for the player's weapon choices, calculates the winner, updates the scores, and displays the results. It also handles the game over condition when either the player or the computer reaches 10 points.
+   * 
+   * The code also includes functionality for a service worker and a progressive web app installation prompt.
+   */
   // the code below will Update the player's score and display it on the screen.
    let playerScore: number = 0;
    let computerScore: number = 0;
@@ -189,16 +196,13 @@ wip2.style.boxShadow = 'none';
 
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").then(registration => {
-        console.log("SW registered")
-        console.log(registration)
     }).catch(err => {
-        console.log('something went wrong', err)
+        alert(`something went wrong ${err}`)
     })
 }
 let deferredPrompt: undefined | Event;
 window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
-    console.log(e)
 });
 
 const installApp = document.getElementById('install-button') as HTMLButtonElement;

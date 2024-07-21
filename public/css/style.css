@@ -1,3 +1,13 @@
+ /**
+  * This CSS file defines the styles for the main layout, popup boxes, and game elements of the application.
+  * 
+  * The main layout includes a full-width and height main element with a centered content area. The popup boxes
+  * are positioned absolutely and can be displayed or hidden with transitions. The game elements include a game
+  * box with player and computer weapon displays, and a start game button.
+  * 
+  * The file also includes some utility styles like a shake animation for form validation, and media queries
+  * for responsive design.
+  */
  *{
   margin:0;
   padding:0;

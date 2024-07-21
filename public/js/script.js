@@ -8,6 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+/**
+ * This code handles the game logic for a rock-paper-scissors game. It updates the player's and computer's scores, displays the results, and manages the game flow.
+ *
+ * The code sets up event listeners for the player's weapon choices, calculates the winner, updates the scores, and displays the results. It also handles the game over condition when either the player or the computer reaches 10 points.
+ *
+ * The code also includes functionality for a service worker and a progressive web app installation prompt.
+ */
 // the code below will Update the player's score and display it on the screen.
 let playerScore = 0;
 let computerScore = 0;
@@ -174,16 +181,13 @@ ok.onclick = function () {
 };
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").then(registration => {
-        console.log("SW registered");
-        console.log(registration);
     }).catch(err => {
-        console.log('something went wrong', err);
+        alert(`something went wrong ${err}`);
     });
 }
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
-    console.log(e);
 });
 const installApp = document.getElementById('install-button');
 installApp.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
